@@ -30,4 +30,3 @@ function hasCode(address _address) internal view returns (bool) {
 - The return value of the delegate call is simply the data interpreted as a Boolean.
 - If the parameter function returns at least 32 zero bytes, the delegate call will always return false even if the call did not throw an exception.
 - 
-

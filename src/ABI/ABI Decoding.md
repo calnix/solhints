@@ -2,7 +2,6 @@
 
 The abi.decode() built-in function is the inverse of abi.encode(), taking arbitrary, ABI-encoded data and unpacking it into its original values, provided you know the encoded types in advance.
 
-
 ```java
 // Decodes to x = 123, a = 0xF0e20f3Be40923b0C720e61A75Fb6940A3929019
 (uint256 x, address a) = abi.decode(encoded, (uint256, address));

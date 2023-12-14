@@ -35,11 +35,9 @@ uint256		78		115,792,089,237,316,195,423,570,985,008,687,907,853,269,984,665,640
 
 Analogy:
 
-There is currently 77 million ether in existence, and around 18m is created every year. In 20 years we'll have in total around (77m + 18*20m) * 10^18 wei.
-This fits into 89 bits.
-
-If your app needs to perform multiplication, 89 + 1 bit = 90 bits (shifting left 1 bit is the same as multiply the number by 2).
-
+- There is currently 77 million ether in existence, and around 18m is created every year. In 20 years we'll have in total around (77m + 18*20m) * 10^18 wei.
+- This fits into 89 bits.
+- If your app needs to perform multiplication, 89 + 1 bit = 90 bits (shifting left 1 bit is the same as multiply the number by 2).
 
 > conversion tool https://ico.atorresg.com/
 
@@ -50,7 +48,7 @@ If your app needs to perform multiplication, 89 + 1 bit = 90 bits (shifting left
 - Using uint64 should be good for 584,942,417,355 years after 1970.
 
 Bottom-line; uint32 should be more than enough. Of course, this only matters if variable packing is possible, like in a struct.
-If not, you waste gas downscaling. 
+If not, you waste gas downscaling.
 
 if your contract is storing many timestamps, it can save gas to use uint128 so that you can store 2 of them in 1 storage slot
 

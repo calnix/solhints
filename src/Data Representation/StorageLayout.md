@@ -5,7 +5,8 @@
 - Storage, unlike the other locations (memory, calldata), is a packed, not padded, location.
 
 ## Storage vs memory
-- Variable packing occurs only in storage — memory and call data are not packed. Solidity packs variables in storage to minimize gas costs.
+
+- **Variable packing occurs only in storage — memory and call data are not packed.** Solidity packs variables in storage to minimize gas costs.
 - You will not save space trying to pack function arguments or local variables in memory.
 - The EVM operates on 32 bytes words, so even if you use smaller types, they are padded to fill a word.
 

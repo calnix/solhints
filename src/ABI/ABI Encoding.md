@@ -14,17 +14,21 @@ Encoding has to follow rules. There are different rules how to encode things in 
 - first 4 bytes are function selector (F)
 - rest are encoded parameters (P)
 
-Raw transaction data does look like this: 0xFFFFPPPP...PPPP.
+Raw transaction data does look like this: `0xFFFFPPPP...PPPP`.
 
 ## Encode Data Before hashing
 
-keccak256(): 
+It is recommended to encode input data before hashing.
+This ensures proper formatting and is especially important for protecting the integrity of the information.
+
+keccak256()
+
 - computes hash, which is always returned as a fixed-length `bytes32` value.
 - resulting hash is a string of hex characters (letters and numbers) that can be represented in hexadecimal format.
 
 ### keccak256 expects a byte array and nothing else
 
-So if your data is already of type bytes there is no difference
+If your data is already of type bytes there is no difference.
 
 ```java 
 function equality() public pure returns (bool) {
@@ -37,9 +41,6 @@ function equality() public pure returns (bool) {
 ```
 
 If <data input> is of any other type, then abi.encodePacked or abi.encode are ways of converting a variable number of arguments, with possibly different types, to bytes to allow for the use of keccak256.
-
-It is recommended to encode input data before hashing.
-This ensures proper formatting and is especially important for protecting the integrity of the information.
 
 ## abi.encodeWithSignature
 
@@ -73,7 +74,7 @@ This is useful when you don’t know the function signature at compile time.
     }
 ```
 
-## abi.encodePacked
+## abi.encodePacked (to be deprecated)
 
 same thing as abi.encode, however, there the data is not packed to fit into 32byte chunks.
 This is useful for saving gas costs by reducing the data size.
@@ -83,7 +84,7 @@ This is useful for saving gas costs by reducing the data size.
 
 ## Comparing abi.encode and abi.encodedPacked
 
-Generally speaking, using abi.encodePacked will result in a lower gas cost than abi.encode. 
+Generally speaking, using abi.encodePacked will result in a lower gas cost than abi.encode.
 This is because abi.encode adds padding to ensure the encoded arguments are correctly aligned, which can result in additional gas costs.
 
 ## Collision Problem

@@ -59,7 +59,7 @@ Padding rule is important when working with literals. `bytesN` will use differen
 - Number literals assigned to bytesN variables are padded to the left.
 - String literals assigned to bytesN variables are padded to the right.
 
-## Accessing individual bytes by index 
+## Accessing individual bytes by index
 
 Possible for all bytesN types (just as with the dynamic bytes). The highest order byte is found at index 0.
 

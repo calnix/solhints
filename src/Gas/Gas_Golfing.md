@@ -2,7 +2,7 @@
 
 ## Use delete instead of reassigning the default value
 
-```javascript
+```java
 uint internal count;
 
 delete count; // Clears count to the default uint value (0)

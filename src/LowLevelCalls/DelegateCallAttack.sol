@@ -15,7 +15,6 @@ contract Attack {
 
     uint256 public indicator;
 
-
     function execute(address implementation, bytes calldata data) external {
         (bool success,) = implementation.delegatecall(data);
         require(success, "Execution failed");

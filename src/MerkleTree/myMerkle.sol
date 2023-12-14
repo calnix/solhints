@@ -13,6 +13,11 @@ contract MerkleTreeCreator {
         ROOT = root;
     }
 
+    /**
+     1. get the height of tree: members /2 till 1
+     2. create nested tree with height
+     3. fill up each of the nested arrays. tree[0]: hashed leaves 
+     */
     function constructTree(address[] memory members, uint256[] memory claimAmounts) external pure returns (bytes32, bytes32[][] memory) {
         
         require(members.length > 0 && members.length == claimAmounts.length, "wrong Dims");
@@ -23,14 +28,12 @@ contract MerkleTreeCreator {
         
         while(n > 0){
             // if (n == 1) n = 0; else n = (n + 1)/2;
+            // (n + 1) to deal w/ odd numbers: 6 --> 3: (treated as 4) --> 2 --> 1
             n = n == 1 ? 0 : (n + 1) / 2;
             ++height;
         }
-
-        uint256[5] memory myNumbersArray;
-        myNumbersArray = [uint256(0), 100, 200, 300, 400]; 
-        
-        //create tree: dynamic array of arrays
+       
+        //create tree: to-level fixed, nested dynamic
         bytes32[][] memory tree = new bytes32[][](height);
 
         //create leaves: memory 2 memory creates reference
@@ -96,20 +99,21 @@ contract MerkleTreeCreator {
         uint256 nodeIndex = memberIndex;
 
         // list of intermediate hashes, less the initial leaf
-        bytes32[] memory proof = new bytes32[](height -1);
+        bytes32[] memory proof = new bytes32[](height - 1);
 
         //cycle thru the layers
         for(uint256 h = 0; h < proof.length; ++h){
-            // is the index even?  
-            uint256 sibilingIndex = memberIndex % 2 == 0 ? nodeIndex + 1 : nodeIndex - 1;
+            // is the index even? if even, look forward, else look backward 
+            uint256 sibilingIndex = nodeIndex % 2 == 0 ? nodeIndex + 1 : nodeIndex - 1;
 
-            if(sibilingIndex < h){
-                
+            if(sibilingIndex < tree[h].length){        // will terminate the root
                 proof[h] = tree[h][sibilingIndex];
             } 
 
             nodeIndex /= 2;     // div by 2, rounded down. index for the next layer.
         }
+
+        return proof;
     }
 
 }

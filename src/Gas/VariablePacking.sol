@@ -11,8 +11,6 @@ contract Packing {
     
     //storage slot 1
     uint256 value5;
-
-
 }
 
 

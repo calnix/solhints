@@ -35,7 +35,6 @@ As more of the positive bits are activated, the negative value decreases.
 
 -1 = [1] 111 1111 -> [-2^7] + 2^6 + .. = -128 + ... + 1 = -1
 
-
 ## Convert positive to negative
 
 1. Invert each bit
@@ -48,9 +47,6 @@ invert:  1111 1100
     +1:  1111 1101 = [-3]
 
 ### Why does this owrks?
-
-
-
 
 
 
