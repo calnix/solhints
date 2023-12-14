@@ -52,4 +52,34 @@ Notice that we have bytes to the left, followed by a bunch of zeros, then we hav
  - **sload(290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563)** = [0] = *0x206f6620746865207072696e74696e6720616e64207479706573657474696e67* = "Lorem Ipsum is simply dummy text of the printing and typesetting"
  - **sload(290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563 + 1)** = [1] = *...* 
 
- 
+## Using strings and hex-literals with fixed size bytes
+
+Padding rule is important when working with literals. `bytesN` will use different internal representations for different types of literals.
+
+- Number literals assigned to bytesN variables are padded to the left.
+- String literals assigned to bytesN variables are padded to the right.
+
+## Accessing individual bytes by index 
+
+Possible for all bytesN types (just as with the dynamic bytes). The highest order byte is found at index 0.
+
+Example
+
+```java
+    contract DateRep {
+
+    uint256 public one = 1;     // 0x000.....01
+
+    //i = 31, returns: 0x0100000000000000000000000000000000000000000000000000000000000000
+    function slice(uint256 i) public returns(bytes32) {
+        return bytes32(one)[i];
+    }
+}
+```
+
+- bytes32 has 32 bits, indexed from [0,31]. 
+- uint variables are left-padded; meaning 1 in the right-most bit.
+- bytes32(one)[31] returns: 0x0100...000
+- the padding changes to right-padding corresponding to bytes arrays, which is what is returned. 
+
+> cast uint as bytes, padding changes from left t0 right. slice bytes array. 1 changes from index 0 to index 31.

@@ -104,3 +104,9 @@ use abi.decode(...)
         return abi.decode(returnedData, (uint, bytes32, uint, string));
     }
 ```
+
+
+## Calldata
+
+- constructing calldata to be sent via .call()
+- https://github.com/CJ42/All-About-Solidity/blob/master/articles/data-locations/Calldata.md

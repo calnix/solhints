@@ -1,6 +1,13 @@
-# Value types
+# Storage layout
 
-Storage capacity is 2²⁵⁶-1 elements
+- Storage capacity is 2²⁵⁶-1 elements.
+- Storage is used to hold all state variables that are not declared `constant` or `immutable`.
+- Storage, unlike the other locations (memory, calldata), is a packed, not padded, location.
+
+## Storage vs memory
+- Variable packing occurs only in storage — memory and call data are not packed. Solidity packs variables in storage to minimize gas costs.
+- You will not save space trying to pack function arguments or local variables in memory.
+- The EVM operates on 32 bytes words, so even if you use smaller types, they are padded to fill a word.
 
 ## Strings and bytes
 
@@ -121,3 +128,14 @@ This is due to the nature of the hashing method.
         return ret;
     }
 ```
+
+For mappings, the main word itself is unused and left as zero; only its position p is used.
+Mappings, famously, do not store what keys exist; keys that don’t exist and keys whose corresponding element is 0 (which is always the encoding of the default value for anything in storage) are treated the same.
+
+
+
+
+## References
+
+- https://ethdebug.github.io/solidity-data-representation/#user-content-types-overview-overview-of-the-types-direct-types-representations-of-direct-types
+- https://github.com/CJ42/All-About-Solidity/blob/master/articles/Bytes.md

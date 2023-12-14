@@ -4,3 +4,13 @@
 2. https://www.rareskills.io/post/gas-optimization
 3. https://betterprogramming.pub/solidity-gas-optimizations-and-tricks-2bcee0f9f1f2
 4. https://xtremetom.medium.com/save-gas-with-data-packing-dd9a28d4df15
+
+## To review
+https://github.com/harendra-shakya/solidity-gas-optimization
+
+
+## Other links
+- https://www.youtube.com/@cryptojesperk/videos
+- https://www.youtube.com/@jordanmmck/videos
+- https://github.com/zigtur/Rareskills-Solidity-Bootcamp
+
