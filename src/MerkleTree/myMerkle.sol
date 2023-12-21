@@ -49,7 +49,7 @@ contract MerkleTreeCreator {
         // loop thru layers
         for(uint256 h = 1; h < height; ++h){
             
-            uint256 nHashes = (nodes.length/2);
+            uint256 nHashes = (nodes.length + 1) / 2;            // (3+1)/2 = 2 | (4+1)/2 = 2
             bytes32[] memory hashes = new bytes32[](nHashes);
 
             // hash pairwise, for missing nodes: value 0

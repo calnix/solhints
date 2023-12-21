@@ -50,7 +50,7 @@ This is why `require(success)` is a very important pairing with low-level calls.
 
 ## Bubbling up errors
 
-- However, the above code swallows any errors returned from the target contract. 
+- However, the above code swallows any errors returned from the target contract.
 - We don’t know what went wrong because no errors are bubbled up even though contract B reverts.
 - We just know if it failed, but not WHY it failed.
 

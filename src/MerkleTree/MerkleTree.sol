@@ -83,7 +83,7 @@ contract TreeCreator {
         for (uint256 h = 1; h < height; ++h) {
             
             // calc no.f of hashes for that layer
-            uint256 nHashes = (nodes.length + 1) / 2;       // (3+1)/2 = 2 | (4+1)/2 = 2
+            uint256 nHashes = (nodes.length + 1) / 2;            // (3+1)/2 = 2 | (4+1)/2 = 2
             bytes32[] memory hashes = new bytes32[](nHashes);   //bytes32[nHashes] memory hashes -> cre8 array based on number of hashes for that layer
             
             // nodes.length = total no. of members
