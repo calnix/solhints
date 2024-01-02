@@ -42,4 +42,4 @@ contract Fixed {
 ## Solutions
 - Checks-Effects-Interactions Pattern
 - Use a Reentrancy Guard
-- 
+- FREi-PI: global invariant require statments. x*y=k

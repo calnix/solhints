@@ -97,7 +97,7 @@ After obtaining the storage location of the element, we load the data stored in 
 For mapping elements, there is no way to order them to save space by fitting smaller types into a single slot like with arrays.
 This is due to the nature of the hashing method.
 
-> Solidity keeps the slot where the mapping was declared, to use its index to concatenate it with the key and produce a different hash for similar mappings. 
+> Solidity keeps the slot where the mapping was declared, to use its index to concatenate it with the key and produce a different hash for similar mappings.
 
 ```java
  
@@ -132,8 +132,6 @@ This is due to the nature of the hashing method.
 
 For mappings, the main word itself is unused and left as zero; only its position p is used.
 Mappings, famously, do not store what keys exist; keys that don’t exist and keys whose corresponding element is 0 (which is always the encoding of the default value for anything in storage) are treated the same.
-
-
 
 
 ## References

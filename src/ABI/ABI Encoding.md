@@ -1,7 +1,7 @@
 # ABI Encoding
 
-When you define a function in Solidity, you can specify its input and output parameters. 
-These parameters have types, such as uint256, string, or address. When you call a function, the input parameters must be encoded so the EVM can understand. 
+When you define a function in Solidity, you can specify its input and output parameters.
+These parameters have types, such as uint256, string, or address. When you call a function, the input parameters must be encoded so the EVM can understand.
 Similarly, when a function returns a value, that value needs to get encoded in a way external systems can understand.
 
 Encoding is really generic term. It basically means "creating byte representation of something more high level".

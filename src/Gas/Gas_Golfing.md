@@ -19,7 +19,7 @@ because it uses EXTCODE* opcodes instead which is much cheaper.
 
 ## Cache storage values in memory
 
-Anytime you are reading from storage more than once, it is cheaper to cache variables in memory. 
+Anytime you are reading from storage more than once, it is cheaper to cache variables in memory.
 An SLOAD cost 100 GAS while MLOAD and MSTORE only cost 3 GAS.
 
 This is especially true in for loops when using the length of a storage array as the condition being checked after each loop.
@@ -44,7 +44,7 @@ require(result <= MAX_64x64);
 
 # OUTDATED
 
-## Gas costs: internal < external < public 
+## Gas costs: internal < external < public
 
 There is no difference in Gas Cost Between Public/External/Internal/Private for Variables and Functions.
 
@@ -59,8 +59,8 @@ Public variables cost the same amount as the internal and private ones to read.
 
 ## Don’t make variables public unless it is necessary to do so
 
-A public storage variable has an implicit public function of the same name. 
-A public function increases the size of the jump table and adds bytecode to read the variable in question. 
+A public storage variable has an implicit public function of the same name.
+A public function increases the size of the jump table and adds bytecode to read the variable in question.
 
 That makes the contract larger.
 
