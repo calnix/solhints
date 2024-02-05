@@ -4,6 +4,8 @@
 2. https://www.rareskills.io/post/gas-optimization
 3. https://betterprogramming.pub/solidity-gas-optimizations-and-tricks-2bcee0f9f1f2
 4. https://xtremetom.medium.com/save-gas-with-data-packing-dd9a28d4df15
+5. https://ethereum.stackexchange.com/questions/13167/are-there-well-solved-and-simple-storage-patterns-for-solidity
+6. https://github.com/aquaflamingo/Solidity-Contract-Patterns
 
 ## To review
 https://github.com/harendra-shakya/solidity-gas-optimization
